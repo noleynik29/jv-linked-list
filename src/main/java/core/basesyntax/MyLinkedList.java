@@ -6,7 +6,6 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size = 0;
-
     @Override
     public void add(T value) {
         linkLast(value);
@@ -70,7 +69,6 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
     public boolean isEmpty() {
         return size == 0;
     }
-
     private void linkLast(T element) {
         Node<T> l = tail;
         Node<T> newNode = new Node<>(l, element, null);
@@ -82,7 +80,6 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
         }
         size++;
     }
-
     private void linkBefore(T element, Node<T> succ) {
         Node<T> pred = succ.prev;
         Node<T> newNode = new Node<>(pred, element, succ);
@@ -94,7 +91,6 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
         }
         size++;
     }
-
     private T unlink(Node<T> node) {
         Node<T> next = node.next;
         Node<T> prev = node.prev;
@@ -118,7 +114,6 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
         size--;
         return element;
     }
-
     private Node<T> node(int index) {
         if (index < (size >> 1)) {
             Node<T> x = head;
@@ -134,7 +129,6 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
             return x;
         }
     }
-
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -146,7 +140,6 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
     }
-
     private class Node<T> {
         private T item;
         private Node<T> next;
